@@ -2,7 +2,6 @@ package tasks_8_7_level.task10_regexpincode;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import tasks_8_7_level.task10_regexpincode.Solution;
 
 class SolutionTest {
     @Test
