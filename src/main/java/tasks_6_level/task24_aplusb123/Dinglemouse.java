@@ -12,8 +12,6 @@ public class Dinglemouse {
 		if (b < 0) {
 			b = (long) 2*maxValue - a + 125L;
 		}
-		System.out.println("long b = " + b);
-		System.out.println("int b = " + (int) b);
 
 		return b;
 	}
