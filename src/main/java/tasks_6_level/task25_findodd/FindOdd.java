@@ -1,7 +1,6 @@
 package tasks_6_level.task25_findodd;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class FindOdd {
