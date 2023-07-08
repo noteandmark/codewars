@@ -7,9 +7,7 @@ public class VersionManager {
 	String initialVersion;
 
 	public VersionManager() {
-		this.major = 0;
-		this.minor = 0;
-		this.patch = 1;
+		this("");
 	}
 
 	public VersionManager(String initialVersion) {
@@ -19,45 +17,15 @@ public class VersionManager {
 		parseVersion(initialVersion);
 	}
 
-	public int getMajor() {
-		return major;
-	}
-
-	public void setMajor(int major) {
-		this.major = major;
-	}
-
-	public int getMinor() {
-		return minor;
-	}
-
-	public void setMinor(int minor) {
-		this.minor = minor;
-	}
-
-	public int getPatch() {
-		return patch;
-	}
-
-	public void setPatch(int patch) {
-		this.patch = patch;
-	}
-
-	public void parseVersion(String initialVersion) {
-		String[] versions = initialVersion.split("\\.");
-		
-        if (versions.length != 3) {
-            throw new IllegalArgumentException("Error occurred while parsing version!");
-        }
-
+	public void parseVersion(String version) {
+		String[] parts = version.split("\\.");
 		try {
-			major = Integer.parseInt(versions[0]);
-			minor = Integer.parseInt(versions[1]);
-			patch = Integer.parseInt(versions[1]);
+			major = Integer.parseInt(parts[0]);
+			minor = Integer.parseInt(parts[1]);
+			patch = Integer.parseInt(parts[2]);
 		} catch (NumberFormatException e) {
-			throw new IllegalArgumentException("Error occured while parsing version!");
+			throw new IllegalArgumentException("Error occurred while parsing version!");
 		}
-
 	}
 
 	public VersionManager major() {
