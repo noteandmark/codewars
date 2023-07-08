@@ -20,6 +20,7 @@ class VersionManagerTest {
 		  @Order(2) @DisplayName("VersionManager initialization with initial version")
 		  void initializationTests(String expected, String version) {
 		    try {
+		    	System.out.println("version = " + version);
 		      assertEquals(expected, new VersionManager(version).release());
 		    } catch(Exception e) {
 		      fail("Your code threw an Exception: " + e);
