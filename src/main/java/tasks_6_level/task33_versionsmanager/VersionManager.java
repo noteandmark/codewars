@@ -21,8 +21,18 @@ public class VersionManager {
 		String[] parts = version.split("\\.");
 		try {
 			major = Integer.parseInt(parts[0]);
-			minor = Integer.parseInt(parts[1]);
-			patch = Integer.parseInt(parts[2]);
+			if (!(parts.length < 3)) {
+				minor = Integer.parseInt(parts[1]);
+				patch = Integer.parseInt(parts[2]);
+			} else {
+				if (parts.length == 1) {
+					minor = 0;
+					patch = 0;
+				} else {
+					minor = Integer.parseInt(parts[1]);
+					patch = 0;
+				}
+			}
 		} catch (NumberFormatException e) {
 			throw new IllegalArgumentException("Error occurred while parsing version!");
 		}
