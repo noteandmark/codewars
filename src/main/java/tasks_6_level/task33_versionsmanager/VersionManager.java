@@ -18,7 +18,7 @@ public class VersionManager {
 			initialVersion = "0.0.1";
 		}
 		parseVersion(initialVersion);
-        versionHistory = new ArrayList<>();
+		versionHistory = new ArrayList<>();
 	}
 
 	private static class Version {
@@ -35,6 +35,7 @@ public class VersionManager {
 
 	public void parseVersion(String version) {
 		String[] parts = version.split("\\.");
+
 		try {
 			major = Integer.parseInt(parts[0]);
 			if (!(parts.length < 3)) {
@@ -50,8 +51,9 @@ public class VersionManager {
 				}
 			}
 		} catch (NumberFormatException e) {
-			throw new IllegalArgumentException("Error occurred while parsing version!");
+			throw new IllegalArgumentException("Error occured while parsing version!");
 		}
+
 	}
 
 	public VersionManager major() {
@@ -86,15 +88,15 @@ public class VersionManager {
 		 * rollback() should be possible and restore the version history release() -
 		 * return a string in the format "{MAJOR}.{MINOR}.{PATCH}"
 		 */
-        if (versionHistory.isEmpty()) {
-            throw new IllegalStateException("Cannot rollback!");
-        }
-        
-        Version lastVersion = versionHistory.remove(versionHistory.size() - 1);
-        major = lastVersion.major;
-        minor = lastVersion.minor;
-        patch = lastVersion.patch;
-        return this;
+		if (versionHistory.isEmpty()) {
+			throw new IllegalStateException("Cannot rollback!");
+		}
+
+		Version lastVersion = versionHistory.remove(versionHistory.size() - 1);
+		major = lastVersion.major;
+		minor = lastVersion.minor;
+		patch = lastVersion.patch;
+		return this;
 	}
 
 	public String release() {
