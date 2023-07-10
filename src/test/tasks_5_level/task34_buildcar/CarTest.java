@@ -59,6 +59,6 @@ public class CarTest {
       value = car.body.component + car.chassis.component;
       output = "\nExpected car:\n" + test + "\nYour car:\n" + value + "\n\n";
       assertEquals(output, value, test); // test
-      System.out.println(output);
+      //System.out.println(output);
     }
 }
