@@ -1,10 +1,13 @@
 package tasks_6_level.task33_versionsmanager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class VersionManager {
 	int major;
 	int minor;
 	int patch;
-	String initialVersion;
+	private List<Version> versionHistory;
 
 	public VersionManager() {
 		this("");
@@ -15,6 +18,19 @@ public class VersionManager {
 			initialVersion = "0.0.1";
 		}
 		parseVersion(initialVersion);
+        versionHistory = new ArrayList<>();
+	}
+
+	private static class Version {
+		private int major;
+		private int minor;
+		private int patch;
+
+		private Version(int major, int minor, int patch) {
+			this.major = major;
+			this.minor = minor;
+			this.patch = patch;
+		}
 	}
 
 	public void parseVersion(String version) {
@@ -40,22 +56,25 @@ public class VersionManager {
 
 	public VersionManager major() {
 		// increase MAJOR by 1, set MINOR and PATCH to 0
-		this.major++;
-		this.minor = 0;
-		this.patch = 0;
+		versionHistory.add(new Version(major, minor, patch));
+		major++;
+		minor = 0;
+		patch = 0;
 		return this; // Return the instance of VersionManager
 	}
 
 	public VersionManager minor() {
 		// increase MINOR by 1, set PATCH to 0
-		this.minor++;
-		this.patch = 0;
+		versionHistory.add(new Version(major, minor, patch));
+		minor++;
+		patch = 0;
 		return this;
 	}
 
 	public VersionManager patch() {
 		// increase PATCH by 1
-		this.patch++;
+		versionHistory.add(new Version(major, minor, patch));
+		patch++;
 		return this;
 	}
 
@@ -67,13 +86,15 @@ public class VersionManager {
 		 * rollback() should be possible and restore the version history release() -
 		 * return a string in the format "{MAJOR}.{MINOR}.{PATCH}"
 		 */
-		try {
-
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Cannot rollback!");
-		}
-
-		return this;
+        if (versionHistory.isEmpty()) {
+            throw new IllegalStateException("Cannot rollback!");
+        }
+        
+        Version lastVersion = versionHistory.remove(versionHistory.size() - 1);
+        major = lastVersion.major;
+        minor = lastVersion.minor;
+        patch = lastVersion.patch;
+        return this;
 	}
 
 	public String release() {
