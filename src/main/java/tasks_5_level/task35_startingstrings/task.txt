@@ -1,0 +1,42 @@
+You will be given a string that contains space-separated words. 
+Your task is to group the words in this way:
+
+    Group them by their beginning.
+    Count how many letters they share in said group.
+    Return the grouped words, ordered in ascending order, ONLY if their group size 
+    
+    (or array length) is equal to the number of shared letters in each beginning.
+
+See the following example:
+
+"a abc abcd abe hi hello" -> ["a", "abc", "abcd", "abe"], ["abc", "abcd", "ab"], 
+
+["abc", "abcd"], ["abcd"], ["hi", "hello"]
+
+See how we treat these arrays:
+
+["a", "abc", "abcd", "abe"] -> The size of this array is 4, yet they only share
+ in the beginning "a". (1 letter) they don't match.
+
+["abc", "abcd", "ab"] -> The size of this array is 3, and they only share 
+in the beginning "ab" (2 letters) they don't match.
+
+["abc", "abcd"] -> The size of this array is 2, only share in the beginning 
+"abc" (3 letters), they don't match.
+
+["abcd"]-> The size of this array is 1, and they share in the beginning 
+"abcd" (4 letters), they don't match.
+
+["hi", "hello"]-> The size of this array is 2, and they share in 
+the beginning "h" (1 letter), they don't match.
+
+NOTES:
+
+    If 2 or more of the same word appear in the string, you should treat them as 
+    different words: Example: "is is" -> ["is", "is"] -> The size of the array is 2, 
+    and both share the beginning "is" (2 letters) -> Should add it to the returned string.
+    If in the String any word has an UpperCase Char, you should transform the String 
+    into LowerCase. Example: "Or or" -> ["or, "or"]
+    If none of the cases matches, return the list empty.
+    Some answers may time out so efficiency is key!
+
