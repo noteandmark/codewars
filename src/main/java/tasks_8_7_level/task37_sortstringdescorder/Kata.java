@@ -26,3 +26,8 @@ public class Kata {
 		return sortedNames;
 	}
 }
+
+//found best decision
+//return Stream.of(students.split(" "))
+//	      .sorted(comparingInt(String::length).thenComparing(identity()).reversed())
+//	      .toArray(String[]::new);
