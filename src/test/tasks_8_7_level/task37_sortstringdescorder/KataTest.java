@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.runners.JUnit4;
 
-class KataTest {
+public class KataTest {
 	    @Test
 	    public void lineupStudents_BasicTest1() {
 	        String[] expectedResult = {"Takehiko","Takayuki", "Takahiro","Takeshi","Takeshi","Takashi","Tadashi","Takeo","Takao"};
