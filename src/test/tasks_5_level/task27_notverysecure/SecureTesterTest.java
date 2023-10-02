@@ -3,10 +3,11 @@ package tasks_5_level.task27_notverysecure;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.*;
+import tasks_5_level.task27_notverysecure.SecureTester;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SecureTesterTest {
-
 	  @Test
 	  @DisplayName("Valid input")
 	  void testValidInput() {

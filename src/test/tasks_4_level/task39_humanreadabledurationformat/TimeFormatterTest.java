@@ -1,8 +1,8 @@
 package tasks_4_level.task39_humanreadabledurationformat;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import tasks_4_level.task39_humanreadabledurationformat.*;
 
 public class TimeFormatterTest {
     @Test
