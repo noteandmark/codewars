@@ -1,6 +1,8 @@
 HELP.md
 target/
 out/
+production/
+test/
 logs/
 src/test/logs
 .idea/
